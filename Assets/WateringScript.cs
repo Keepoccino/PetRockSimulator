@@ -7,11 +7,18 @@ public class WateringScript : MonoBehaviour
 {
     public float moveTime = 0.3f;
     public float TurnDegrees = 45f;
-    public ParticleSystem WaterParticleSystem;
+    public float WateringRate = 0.001f;
 
+    private ParticleSystem waterParticleSystem;
     private float currentMoveVelocity;
     private bool emmitWater;
+    private List<ParticleCollisionEvent> collisionEvents;
 
+    void Start()
+    {
+        waterParticleSystem = GetComponent<ParticleSystem>();
+        collisionEvents = new List<ParticleCollisionEvent>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,8 +32,28 @@ public class WateringScript : MonoBehaviour
                 emmitWater = true;
             }
         }
-        var em = WaterParticleSystem.emission;
+        var em = waterParticleSystem.emission;
         em.enabled = emmitWater;
         transform.rotation = Quaternion.AngleAxis(Mathf.SmoothDampAngle(transform.rotation.eulerAngles.z, rotateToDegrees, ref currentMoveVelocity, moveTime), Vector3.forward);
     }
+
+    void OnParticleCollision(GameObject other)
+    {
+        if (other != RockAI.Instance.gameObject)
+            return;
+
+        int numCollisionEvents = waterParticleSystem.GetCollisionEvents(other, collisionEvents);
+
+        int i = 0;
+        while (i < numCollisionEvents)
+        {
+            if (collisionEvents[i].velocity.sqrMagnitude > 1)
+            {
+                RockAI.Instance.ModifyWater(WateringRate);
+            }
+            i++;
+        }
+    }
+
+
 }
