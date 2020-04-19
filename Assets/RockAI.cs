@@ -41,6 +41,23 @@ public class RockAI : MonoBehaviour
     private float statGrowthIncreaseRate = 0.15f;
 
 
+    // Singleton Pattern
+    private static RockAI _instance;
+
+    public static RockAI Instance { get { return _instance; } }
+
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,15 +77,7 @@ public class RockAI : MonoBehaviour
         statFun -= statFunDecay * (Time.deltaTime / secondsPerMinute);
         statGrowth += statGrowthIncreaseRate * (Time.deltaTime / secondsPerMinute);
 
-
-        statSleep = Mathf.Clamp(statSleep, 0, 1);
-        statHunger = Mathf.Clamp(statHunger, 0, 1);
-        statWater = Mathf.Clamp(statWater, 0, 1);
-        statLove = Mathf.Clamp(statLove, 0, 1);
-        statHygiene = Mathf.Clamp(statHygiene, 0, 1);
-        statFun = Mathf.Clamp(statHygiene, 0, 1);
-        statGrowth = Mathf.Clamp(statGrowth, 0, 1);
-
+        ClampAllValues();
 
         statSleepController?.SetCurrentValue(statSleep);
         statHungerController?.SetCurrentValue(statHunger);
@@ -78,4 +87,22 @@ public class RockAI : MonoBehaviour
         statFunController?.SetCurrentValue(statFun);
         statGrowthController?.SetCurrentValue(statGrowth);
     }
+
+    void ClampAllValues()
+    {
+        statSleep = Mathf.Clamp(statSleep, 0, 1);
+        statHunger = Mathf.Clamp(statHunger, 0, 1);
+        statWater = Mathf.Clamp(statWater, 0, 1);
+        statLove = Mathf.Clamp(statLove, 0, 1);
+        statHygiene = Mathf.Clamp(statHygiene, 0, 1);
+        statFun = Mathf.Clamp(statHygiene, 0, 1);
+        statGrowth = Mathf.Clamp(statGrowth, 0, 1);
+    }
+
+    public void ModifySleep(float value) => statSleep += value;
+    public void ModifyHunger(float value) => statHunger += value;
+    public void ModifyWater(float value) => statWater += value;
+    public void ModifyHygiene(float value) => statHygiene += value;
+    public void ModifyFun(float value) => statFun += value;
+    public void ModifyGrowth(float value) => statGrowth += value;
 }
