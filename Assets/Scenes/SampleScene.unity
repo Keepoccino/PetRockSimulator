@@ -172,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123737346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.03, z: 0}
+  m_LocalPosition: {x: 0, y: -2.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &202664781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 800831558}
   m_Layer: 0
   m_Name: rock_sprite
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2987,7 +2987,7 @@ GameObject:
   - component: {fileID: 1491133299}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3000,7 +3000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491133295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0, y: -1.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 800831556}
@@ -3041,6 +3041,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsPerMinute: 60
+  RockSizeSprites:
+  - {fileID: 21300000, guid: 76357660d1d4f134fa210377eb493639, type: 3}
+  - {fileID: 21300000, guid: 2b326e08e738a3e4e864c9514609b95a, type: 3}
+  - {fileID: 21300000, guid: 4193c2950448a25468a7ad2f8e09f023, type: 3}
+  - {fileID: 21300000, guid: 5ea83869678bf934885e36cc61793740, type: 3}
+  - {fileID: 21300000, guid: 285a2d1e0c740d641bd7a533fc78c79a, type: 3}
+  RockSizeRateModifiers:
+  - 1
+  - 0.7
+  - 0.5
+  - 0.4
+  - 0.3
+  RockSpriteRenderer: {fileID: 800831555}
   statSleepController: {fileID: 247134514}
   statHungerController: {fileID: 1235267550}
   statWaterController: {fileID: 1938687375}
@@ -3054,7 +3067,9 @@ MonoBehaviour:
   statLove: 0
   statHygiene: 0
   statFun: 0
-  statGrowth: 0
+  statGrowth: 0.97
+  rockSize: 0
+  rockSizeRateModifier: 0
 --- !u!1001 &1536100712
 PrefabInstance:
   m_ObjectHideFlags: 0

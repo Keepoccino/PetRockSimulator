@@ -775,10 +775,10 @@ ParticleSystem:
     angle: 23.27
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.27
+    radiusThickness: 0.83
     donutRadius: 0.2
-    m_Position: {x: 1.7, y: 0.25, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Position: {x: 1.62, y: 0.4, z: 0}
+    m_Rotation: {x: 0, y: 0, z: -45.8}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -858,7 +858,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.31
+      value: 0.33
       mode: 0
       spread: 0
       speed:
@@ -915,7 +915,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 52.6
+      value: 99.87
       mode: 0
       spread: 0
       speed:
@@ -972,7 +972,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2

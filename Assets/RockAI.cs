@@ -6,6 +6,11 @@ public class RockAI : MonoBehaviour
 {
     public float secondsPerMinute = 60;
 
+    public List<Sprite> RockSizeSprites;
+
+    public List<float> RockSizeRateModifiers;
+
+    public SpriteRenderer RockSpriteRenderer;
 
     public StatController statSleepController;
     public StatController statHungerController;
@@ -38,7 +43,13 @@ public class RockAI : MonoBehaviour
     private float statLoveDecay = 0.3f;
     private float statHygieneDecay = 0.3f;
     private float statFunDecay = 0.3f;
-    private float statGrowthIncreaseRate = 0.15f;
+    private float statGrowthIncreaseRate = 3.15f;
+
+
+    [SerializeField]
+    private int rockSize;
+    [SerializeField]
+    private float rockSizeRateModifier;
 
 
     // Singleton Pattern
@@ -48,6 +59,7 @@ public class RockAI : MonoBehaviour
 
     void Awake()
     {
+        ChangeRockSize(3);
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -69,15 +81,24 @@ public class RockAI : MonoBehaviour
     void Update()
     {
 
-        statSleep += statSleepRecovery * (Time.deltaTime / secondsPerMinute);
+        statSleep += statSleepRecovery * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
         statHunger -= statHungerDecay * (Time.deltaTime / secondsPerMinute);
         statWater -= statWaterDecay * (Time.deltaTime / secondsPerMinute);
         statLove -= statLoveDecay * (Time.deltaTime / secondsPerMinute);
         statHygiene -= statHygieneDecay * (Time.deltaTime / secondsPerMinute);
         statFun -= statFunDecay * (Time.deltaTime / secondsPerMinute);
-        statGrowth += statGrowthIncreaseRate * (Time.deltaTime / secondsPerMinute);
+        statGrowth += statGrowthIncreaseRate * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
 
         ClampAllValues();
+
+        if(statGrowth == 1 && rockSize < RockSizeSprites.Count - 1)
+        {
+            ChangeRockSize(rockSize + 1);
+            if(rockSize < RockSizeSprites.Count - 1)
+            {
+                statGrowth = 0;
+            }
+        }
 
         statSleepController?.SetCurrentValue(statSleep);
         statHungerController?.SetCurrentValue(statHunger);
@@ -99,10 +120,19 @@ public class RockAI : MonoBehaviour
         statGrowth = Mathf.Clamp(statGrowth, 0, 1);
     }
 
-    public void ModifySleep(float value) => statSleep += value;
-    public void ModifyHunger(float value) => statHunger += value;
-    public void ModifyWater(float value) => statWater += value;
-    public void ModifyHygiene(float value) => statHygiene += value;
-    public void ModifyFun(float value) => statFun += value;
-    public void ModifyGrowth(float value) => statGrowth += value;
+    public void ModifySleep(float value) => statSleep += value * rockSizeRateModifier;
+    public void ModifyHunger(float value) => statHunger += value * rockSizeRateModifier;
+    public void ModifyWater(float value) => statWater += value * rockSizeRateModifier;
+    public void ModifyHygiene(float value) => statHygiene += value * rockSizeRateModifier;
+    public void ModifyFun(float value) => statFun += value * rockSizeRateModifier;
+    public void ModifyGrowth(float value) => statGrowth += value * rockSizeRateModifier;
+
+    void ChangeRockSize(int size)
+    {
+        RockSpriteRenderer.sprite = RockSizeSprites[size];
+        Destroy(RockSpriteRenderer.GetComponent<PolygonCollider2D>());
+        RockSpriteRenderer.gameObject.AddComponent<PolygonCollider2D>();
+        rockSizeRateModifier = RockSizeRateModifiers[size];
+        rockSize = size;
+    }
 }
