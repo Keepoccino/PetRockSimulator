@@ -95,7 +95,7 @@ public class RockAI : MonoBehaviour
         statWater = Mathf.Clamp(statWater, 0, 1);
         statLove = Mathf.Clamp(statLove, 0, 1);
         statHygiene = Mathf.Clamp(statHygiene, 0, 1);
-        statFun = Mathf.Clamp(statHygiene, 0, 1);
+        statFun = Mathf.Clamp(statFun, 0, 1);
         statGrowth = Mathf.Clamp(statGrowth, 0, 1);
     }
 
