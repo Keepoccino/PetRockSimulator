@@ -42,6 +42,9 @@ TagManager:
   - name: Rock
     uniqueID: 3281079415
     locked: 0
+  - name: Leash
+    uniqueID: 2859531207
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
