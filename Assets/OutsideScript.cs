@@ -32,7 +32,6 @@ public class OutsideScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rock = RockAI.Instance.gameObject.GetComponent<Rigidbody2D>();
         currentlyMoving = true;
         RockAI.Instance.ShowLeash = true;
         moveStartTime = Time.time; 
@@ -47,6 +46,7 @@ public class OutsideScript : MonoBehaviour
     {
         if (currentlyMoving)
         {
+            rock = RockAI.Instance.gameObject.GetComponent<Rigidbody2D>();
             float timeSinceMoveStart = Time.time - moveStartTime;
             var movement = Mathf.Max(0, Mathf.Sin(timeSinceMoveStart * moveFrequency) * moveSpeed * Time.deltaTime);
             rock.position += new Vector2(movement, 0);

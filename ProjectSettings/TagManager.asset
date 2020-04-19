@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rock
+  - Bowl
   layers:
   - Default
   - TransparentFX
@@ -39,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bowl
+    uniqueID: 2470373769
+    locked: 0
   - name: Rock
     uniqueID: 3281079415
     locked: 0

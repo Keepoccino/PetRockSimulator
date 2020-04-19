@@ -6,6 +6,7 @@ public class FunGenerator : MonoBehaviour
 {
     public float FunRadius = 2f;
     public float FunIncreaseRate = 0.0002f;
+    public float LoveIncrease = 0.0003f;
     public float MinSpeed = 2f;
     private Rigidbody2D rb;
 
@@ -29,7 +30,8 @@ public class FunGenerator : MonoBehaviour
         {
             if (hitColliders[i].tag == "Rock")
             {
-                RockAI.Instance.ModifyFun(FunIncreaseRate);
+                RockAI.Instance.ModifyFun(FunIncreaseRate * Time.deltaTime); 
+                RockAI.Instance.ModifyLove(LoveIncrease * Time.deltaTime);
             }
             i++;
         }
