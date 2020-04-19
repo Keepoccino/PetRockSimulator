@@ -8,6 +8,7 @@ public class OutsideScript : MonoBehaviour
     public float moveSpeed = 1f;
     public float moveFrequency = 1.3f;
     public Transform Point1;
+    public Vector2 rockRespawnPosition;
 
     Rope rope;
     LineRenderer line;
@@ -15,9 +16,10 @@ public class OutsideScript : MonoBehaviour
 
 
 
+
+
     bool currentlyMoving;
     float moveStartTime;
-    Vector3 rockStartPos;
     Vector3 pointStartPos;
 
 
@@ -40,7 +42,6 @@ public class OutsideScript : MonoBehaviour
         rope.Point2 = RockAI.Instance.GetLeashPoint();
 
         pointStartPos = Point1.position;
-        rockStartPos = rock.position;
     }
 
     // Update is called once per frame
@@ -69,7 +70,7 @@ public class OutsideScript : MonoBehaviour
         rope.enabled = false;
         RockAI.Instance.ShowLeash = false;
 
-        rock.position = rockStartPos;
+        rock.position = rockRespawnPosition;
         Point1.position = pointStartPos;
     }
 
