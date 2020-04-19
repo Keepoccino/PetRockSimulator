@@ -42,6 +42,8 @@ public class WateringScript : MonoBehaviour
         if (other != RockAI.Instance.gameObject)
             return;
 
+        RockAI.Instance.IsInteractedWith();
+
         int numCollisionEvents = waterParticleSystem.GetCollisionEvents(other, collisionEvents);
 
         int i = 0;

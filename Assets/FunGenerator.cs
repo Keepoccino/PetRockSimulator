@@ -30,6 +30,7 @@ public class FunGenerator : MonoBehaviour
         {
             if (hitColliders[i].tag == "Rock")
             {
+                RockAI.Instance.IsInteractedWith();
                 RockAI.Instance.ModifyFun(FunIncreaseRate * Time.deltaTime); 
                 RockAI.Instance.ModifyLove(LoveIncrease * Time.deltaTime);
             }

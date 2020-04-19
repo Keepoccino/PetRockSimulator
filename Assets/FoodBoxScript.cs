@@ -43,6 +43,8 @@ public class FoodBoxScript : MonoBehaviour
         if (!other.CompareTag("Bowl"))
             return;
 
+        RockAI.Instance.IsInteractedWith();
+
         int numCollisionEvents = foodParticleSystem.GetCollisionEvents(other, collisionEvents);
 
         int i = 0;

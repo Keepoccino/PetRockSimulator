@@ -26,29 +26,32 @@ public class RockAI : MonoBehaviour
 
 
     [SerializeField]
-    private float statSleep = 0.8f;
+    public float statSleep = 0.8f;
     [SerializeField]
-    private float statHunger = 0.5f;
+    public float statHunger = 0.5f;
     [SerializeField]
-    private float statWater = 0.5f;
+    public float statWater = 0.5f;
     [SerializeField]
-    private float statLove = 0.5f;
+    public float statLove = 0.5f;
     [SerializeField]
-    private float statFreedom = 0.5f;
+    public float statFreedom = 0.5f;
     [SerializeField]
-    private float statFun = 0.5f;
+    public float statFun = 0.5f;
     [SerializeField]
-    private float statGrowth = 0.5f;
+    public float statGrowth = 0.5f;
 
     //Rates are per minute
-    private float statSleepRecovery = 0.20f;
-    private float statHungerDecay = 0.12f;
-    private float statWaterDecay = 0.2f;
-    private float statLoveDecay = 0.3f;
-    private float statLoveIncrease = 0.6f;
-    private float statFreedomDecay = 0.3f;
-    private float statFunDecay = 0.3f;
-    private float statGrowthIncreaseRate = 3.15f;
+    public float statSleepRecovery = 0.20f;
+    public float statSleepDecay = 0.20f;
+    public float statHungerDecay = 0.12f;
+    public float statWaterDecay = 0.2f;
+    public float statLoveDecay = 0.3f;
+    public float statLoveIncrease = 0.6f;
+    public float statFreedomDecay = 0.3f;
+    public float statFunDecay = 0.3f;
+    public float statGrowthIncreaseRate = 3.15f;
+
+    public float timeTillSleep = 2;
 
     private GameObject LeashObject;
     private SpriteRenderer LeashRenderer;
@@ -57,6 +60,8 @@ public class RockAI : MonoBehaviour
     private int rockSize;
     [SerializeField]
     private float rockSizeRateModifier;
+
+    private float lastInteraction;
 
 
     // Singleton Pattern
@@ -90,14 +95,17 @@ public class RockAI : MonoBehaviour
         if (LeashRenderer != null)
             LeashRenderer.enabled = ShowLeash;
 
-        statSleep += statSleepRecovery * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
+        if (Time.time - lastInteraction > timeTillSleep)
+            statSleep += statSleepRecovery * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
+        else
+            statSleep -= statSleepDecay * (Time.deltaTime / secondsPerMinute);
         statHunger -= statHungerDecay * (Time.deltaTime / secondsPerMinute);
         statWater -= statWaterDecay * (Time.deltaTime / secondsPerMinute);
         statFreedom -= statFreedomDecay * (Time.deltaTime / secondsPerMinute);
         statFun -= statFunDecay * (Time.deltaTime / secondsPerMinute);
 
         if (CanLoveIncrease())
-            statLove += statLoveIncrease * (Time.deltaTime / secondsPerMinute);
+            statLove += statLoveIncrease * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
         else
             statLove -= statLoveDecay * (Time.deltaTime / secondsPerMinute);
 
@@ -179,5 +187,10 @@ public class RockAI : MonoBehaviour
         LeashRenderer.enabled = ShowLeash;
         rockSizeRateModifier = RockSizeRateModifiers[size];
         rockSize = size;
+    }
+
+    public void IsInteractedWith()
+    {
+        lastInteraction = Time.time;
     }
 }
