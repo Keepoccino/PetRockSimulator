@@ -2294,7 +2294,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.radiusThickness
-    value: 0.27
+    value: 0.83
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.donutRadius
@@ -2302,11 +2302,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.m_Position.x
-    value: 0
+    value: 1.62
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.m_Position.y
-    value: 0
+    value: 0.4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.m_Position.z
@@ -2322,7 +2322,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.m_Rotation.z
-    value: 0
+    value: -45.8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.m_Scale.x
@@ -2602,7 +2602,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.radius.value
-    value: 0.31
+    value: 0.33
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.radius.mode
@@ -2786,7 +2786,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.arc.value
-    value: 52.6
+    value: 99.87
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: ShapeModule.arc.mode
@@ -12850,7 +12850,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: CollisionModule.collisionMessages
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: CollisionModule.collidesWithDynamic
@@ -12894,7 +12894,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: TriggerModule.outside
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: TriggerModule.enter

@@ -45,6 +45,7 @@ public class RockAI : MonoBehaviour
     private float statHungerDecay = 0.12f;
     private float statWaterDecay = 0.2f;
     private float statLoveDecay = 0.3f;
+    private float statLoveIncrease = 0.6f;
     private float statFreedomDecay = 0.3f;
     private float statFunDecay = 0.3f;
     private float statGrowthIncreaseRate = 3.15f;
@@ -92,10 +93,16 @@ public class RockAI : MonoBehaviour
         statSleep += statSleepRecovery * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
         statHunger -= statHungerDecay * (Time.deltaTime / secondsPerMinute);
         statWater -= statWaterDecay * (Time.deltaTime / secondsPerMinute);
-        statLove -= statLoveDecay * (Time.deltaTime / secondsPerMinute);
         statFreedom -= statFreedomDecay * (Time.deltaTime / secondsPerMinute);
         statFun -= statFunDecay * (Time.deltaTime / secondsPerMinute);
-        statGrowth += statGrowthIncreaseRate * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
+
+        if (CanLoveIncrease())
+            statLove += statLoveIncrease * (Time.deltaTime / secondsPerMinute);
+        else
+            statLove -= statLoveDecay * (Time.deltaTime / secondsPerMinute);
+
+        if (CanGrow())
+            statGrowth += statGrowthIncreaseRate * (Time.deltaTime / secondsPerMinute) * rockSizeRateModifier;
 
         ClampAllValues();
 
@@ -128,10 +135,31 @@ public class RockAI : MonoBehaviour
         statGrowth = Mathf.Clamp(statGrowth, 0, 1);
     }
 
+    bool CanGrow()
+    {
+        var growThreshold = 0.8;
+        return statSleep > growThreshold &&
+            statHunger > growThreshold &&
+            statWater > growThreshold &&
+            statLove > growThreshold &&
+            statFreedom > growThreshold &&
+            statFun > growThreshold;
+    }
+    bool CanLoveIncrease()
+    {
+        var growThreshold = 0.9;
+        return statSleep > growThreshold &&
+            statHunger > growThreshold &&
+            statWater > growThreshold &&
+            statFreedom > growThreshold &&
+            statFun > growThreshold;
+    }
+
     public void ModifySleep(float value) => statSleep += value * rockSizeRateModifier;
     public void ModifyHunger(float value) => statHunger += value * rockSizeRateModifier;
     public void ModifyWater(float value) => statWater += value * rockSizeRateModifier;
     public void ModifyFreedom(float value) => statFreedom += value * rockSizeRateModifier;
+    public void ModifyLove(float value) => statLove += value * rockSizeRateModifier;
     public void ModifyFun(float value) => statFun += value * rockSizeRateModifier;
     public void ModifyGrowth(float value) => statGrowth += value * rockSizeRateModifier;
 
