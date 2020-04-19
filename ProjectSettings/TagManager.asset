@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3354404601
+    locked: 0
   - name: Bowl
     uniqueID: 2470373769
     locked: 0
@@ -54,6 +57,9 @@ TagManager:
     locked: 0
   - name: Particles
     uniqueID: 2979243711
+    locked: 0
+  - name: Utility
+    uniqueID: 1529658173
     locked: 0
   - name: UI
     uniqueID: 1874100357

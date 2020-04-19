@@ -6,7 +6,7 @@ public class FollowMouse : MonoBehaviour
 {
     public float moveSpeed = 0.3f;
 
-    private Vector2 currentVelocity;
+    public Vector2 currentVelocity;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class FollowMouse : MonoBehaviour
         transform.position = GetDestination();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         var destination = GetDestination();
         //transform.position = Vector2.Lerp(transform.position, destination, moveSpeed);

@@ -19,22 +19,12 @@ public class FunGenerator : MonoBehaviour
     void Update()
     {
         if(rb.velocity.sqrMagnitude > MinSpeed)
-            caster(transform.position, FunRadius);
-    }
-
-    void caster(Vector2 center, float radius)
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
-        int i = 0;
-        while (i < hitColliders.Length)
-        {
-            if (hitColliders[i].tag == "Rock")
+            if(Helpers.Caster(transform.position, "Rock", FunRadius))
             {
                 RockAI.Instance.IsInteractedWith();
-                RockAI.Instance.ModifyFun(FunIncreaseRate * Time.deltaTime); 
+                RockAI.Instance.ModifyFun(FunIncreaseRate * Time.deltaTime);
                 RockAI.Instance.ModifyLove(LoveIncrease * Time.deltaTime);
             }
-            i++;
-        }
     }
+
 }
