@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb2704dde3570641a3f37cb2f19f861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freedomIncreaseRate: 0.05
+  freedomIncreaseRate: 0.1
+  funIncreaseRate: 0.04
   moveSpeed: 3.48
   moveFrequency: 4.84
   Point1: {fileID: 6487223575958113019}
+  rockRespawnPosition: {x: 0, y: 0}
 --- !u!120 &6487223575297127803
 LineRenderer:
   m_ObjectHideFlags: 0

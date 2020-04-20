@@ -5,6 +5,7 @@ using UnityEngine;
 public class OutsideScript : MonoBehaviour
 {
     public float freedomIncreaseRate = 0.04f;
+    public float funIncreaseRate = 0.04f;
     public float moveSpeed = 1f;
     public float moveFrequency = 1.3f;
     public Transform Point1;
@@ -13,10 +14,6 @@ public class OutsideScript : MonoBehaviour
     Rope rope;
     LineRenderer line;
     Rigidbody2D rock;
-
-
-
-
 
     bool currentlyMoving;
     float moveStartTime;
@@ -49,6 +46,7 @@ public class OutsideScript : MonoBehaviour
     {
         if (currentlyMoving)
         {
+            RockAI.Instance.ShowLeash = true;
             rock = RockAI.Instance.gameObject.GetComponent<Rigidbody2D>();
             float timeSinceMoveStart = Time.time - moveStartTime;
             var movement = Mathf.Max(0, Mathf.Sin(timeSinceMoveStart * moveFrequency) * moveSpeed * Time.deltaTime);
@@ -56,10 +54,11 @@ public class OutsideScript : MonoBehaviour
             Point1.position += new Vector3(movement, 0, 0);
 
             RockAI.Instance.ModifyFreedom(freedomIncreaseRate * Time.deltaTime);
+            RockAI.Instance.ModifyFun(funIncreaseRate * Time.deltaTime);
             RockAI.Instance.IsInteractedWith();
 
             if (timeSinceMoveStart > 15 && RockAI.Instance.statFreedomController.currentValue >= 1)
-                PutRockBack();
+                Destroy(gameObject);
         }
     }
 

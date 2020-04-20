@@ -1825,6 +1825,7 @@ RectTransform:
   - {fileID: 614312150}
   - {fileID: 202664781}
   - {fileID: 255362525}
+  - {fileID: 1048841919}
   m_Father: {fileID: 1954375344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2349,7 +2350,7 @@ SpriteRenderer:
   m_SortingLayerID: -940562695
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3d0d683d4c5e587439351d43ea20c8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 091c7a80543549041b08fdbdd8d61f61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2771,6 +2772,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6715ad2a4bb9aaa4981523bf86c07e53, type: 3}
+--- !u!1 &1048841918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048841919}
+  - component: {fileID: 1048841921}
+  - component: {fileID: 1048841920}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048841919
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048841918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 697558491}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 310, y: -20}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1048841920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048841918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c8e3d736fec3f79428172c663753ede6, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1048841921
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048841918}
+  m_CullTransparentMesh: 0
 --- !u!1 &1141879043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,22 +3947,22 @@ MonoBehaviour:
   statFunController: {fileID: 646989937}
   statGrowthController: {fileID: 412443833}
   ShowLeash: 0
-  statSleep: 0.8
+  statSleep: 0.79
   statHunger: 0.1
   statWater: 0.2
   statLove: 0
-  statFreedom: 0.5
+  statFreedom: 0.74
   statFun: 0
-  statGrowth: 0.97
-  statSleepRecovery: 1
-  statSleepDecay: 0.2
-  statHungerDecay: 0.12
-  statWaterDecay: 0.2
+  statGrowth: 0.94
+  statSleepRecovery: 1.63
+  statSleepDecay: 0.41
+  statHungerDecay: 0.63
+  statWaterDecay: 0.41
   statLoveDecay: 0.3
-  statLoveIncrease: 0.6
-  statFreedomDecay: 0.3
-  statFunDecay: 0.3
-  statGrowthIncreaseRate: 0.15
+  statLoveIncrease: 1.51
+  statFreedomDecay: 0.39
+  statFunDecay: 0.66
+  statGrowthIncreaseRate: 0.93
   timeTillSleep: 2
   rockSize: 0
   rockSizeRateModifier: 0

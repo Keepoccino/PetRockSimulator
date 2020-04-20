@@ -145,7 +145,7 @@ public class RockAI : MonoBehaviour
 
     bool CanGrow()
     {
-        var growThreshold = 0.8;
+        var growThreshold = 0.6;
         return statSleep > growThreshold &&
             statHunger > growThreshold &&
             statWater > growThreshold &&
@@ -155,7 +155,7 @@ public class RockAI : MonoBehaviour
     }
     bool CanLoveIncrease()
     {
-        var growThreshold = 0.9;
+        var growThreshold = 0.8;
         return statSleep > growThreshold &&
             statHunger > growThreshold &&
             statWater > growThreshold &&
