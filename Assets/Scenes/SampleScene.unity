@@ -738,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &255362525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   BowlHalf: {fileID: 1169933541}
   BowlFull: {fileID: 1852038136}
   foodLeft: 0
-  foodIncrease: 0.03
+  foodIncrease: 0.04
   loveIncrease: 0.0003
   foodBowlDecrease: 0.02
 --- !u!4 &820213509
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   - 0.8
   - 0.65
   - 0.5
-  - 0.4
+  - 0.48
   RockSpriteRenderer: {fileID: 800831555}
   statSleepController: {fileID: 247134514}
   statHungerController: {fileID: 1235267550}

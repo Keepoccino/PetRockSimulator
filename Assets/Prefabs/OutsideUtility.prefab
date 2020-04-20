@@ -48,10 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freedomIncreaseRate: 0.1
   funIncreaseRate: 0.04
-  moveSpeed: 3.48
+  moveSpeed: 5.35
   moveFrequency: 4.84
   Point1: {fileID: 6487223575958113019}
-  rockRespawnPosition: {x: 0, y: 0}
+  rockRespawnPosition: {x: 2, y: 0}
 --- !u!120 &6487223575297127803
 LineRenderer:
   m_ObjectHideFlags: 0

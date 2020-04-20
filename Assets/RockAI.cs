@@ -66,6 +66,8 @@ public class RockAI : MonoBehaviour
     private GameObject LeashObject;
     private SpriteRenderer LeashRenderer;
 
+    private GrowthController growthController;
+
     [SerializeField]
     private int rockSize;
     [SerializeField]
@@ -81,7 +83,8 @@ public class RockAI : MonoBehaviour
 
     void Awake()
     {
-        ChangeRockSize(0);
+        growthController = GetComponent<GrowthController>();
+        ChangeRockSize(2);
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -148,13 +151,7 @@ public class RockAI : MonoBehaviour
 
     bool CanGrow()
     {
-        var growThreshold = 0.6;
-        return statSleep > growThreshold &&
-            statHunger > growThreshold &&
-            statWater > growThreshold &&
-            statLove > growThreshold &&
-            statFreedom > growThreshold &&
-            statFun > growThreshold;
+        return growthController.IsGrowing;
     }
     bool CanLoveIncrease()
     {

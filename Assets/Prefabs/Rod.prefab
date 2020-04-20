@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FunRadius: 4
-  FunIncreaseRate: 0.12
+  FunIncreaseRate: 0.08
   LoveIncrease: 0.03
   MinSpeed: 4
 --- !u!1 &2014617589166162742
