@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RockAI : MonoBehaviour
 {
+    [TextArea]
+    public string FirstGrownText;
+
+    [TextArea]
+    public string FullyGrownText;
+
     public float secondsPerMinute = 60;
 
     public List<Sprite> RockSizeSprites;
@@ -53,6 +60,9 @@ public class RockAI : MonoBehaviour
 
     public float timeTillSleep = 2;
 
+    public Text MessageboxText;
+    public GameObject MessageBox;
+
     private GameObject LeashObject;
     private SpriteRenderer LeashRenderer;
 
@@ -80,13 +90,6 @@ public class RockAI : MonoBehaviour
         {
             _instance = this;
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -178,6 +181,12 @@ public class RockAI : MonoBehaviour
 
     void ChangeRockSize(int size)
     {
+        if (size == 1)
+            ShowMessage(FirstGrownText);
+
+        if (size == RockSizeSprites.Count - 1)
+            ShowMessage(FullyGrownText);
+
         RockSpriteRenderer.sprite = RockSizeSprites[size];
         Destroy(RockSpriteRenderer.GetComponent<PolygonCollider2D>());
         RockSpriteRenderer.gameObject.AddComponent<PolygonCollider2D>();
@@ -192,5 +201,11 @@ public class RockAI : MonoBehaviour
     public void IsInteractedWith()
     {
         lastInteraction = Time.time;
+    }
+
+    public void ShowMessage(string text)
+    {
+        MessageboxText.text = text;
+        MessageBox.SetActive(true);
     }
 }

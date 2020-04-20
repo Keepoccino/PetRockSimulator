@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTime: 0.3
   TurnDegrees: 124.99
-  IncreaseRate: 0.001
+  IncreaseRate: 0.003
 --- !u!198 &4584075360008075296
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4809,7 +4809,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e1040a09ec123c4439b35387e8166358, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

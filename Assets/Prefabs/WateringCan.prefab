@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTime: 0.3
   TurnDegrees: -45
-  WateringRate: 0.0003
+  WateringRate: 0.0009
 --- !u!198 &7043553162688916593
 ParticleSystem:
   m_ObjectHideFlags: 0
